@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MSPatient.Data;
 using MSPatient.Models;
 
 namespace MSPatient.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class PatientController : ControllerBase
@@ -45,9 +45,9 @@ namespace MSPatient.Controllers
             }
             return BadRequest(ModelState);
         }
-       
+
         [HttpDelete("{id}")]
-        public IActionResult DeletePatient(int id)
+        public IActionResult Delete(int id)
         {
             var patient = _context.Patients.Find(id);
             if (patient == null)
@@ -59,5 +59,4 @@ namespace MSPatient.Controllers
             return NoContent();
         }
     }
-
 }
