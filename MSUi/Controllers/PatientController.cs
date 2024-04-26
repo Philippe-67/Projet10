@@ -67,16 +67,64 @@ namespace MSUI.Controllers
                 return StatusCode((int)response.StatusCode, $"Erreur HTTP: {response.StatusCode}. Détails : {errorMessage}");
             }
         }
+        //[HttpGet]
+        //public async Task<IActionResult> Update(int id)
+        //{
+        //    HttpResponseMessage response = await _httpClient.GetAsync($"/api/Patient/{id}");
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        string responseData = await response.Content.ReadAsStringAsync();
+        //        var patient = JsonConvert.DeserializeObject<Patient>(responseData);
+        //        return View(patient);
+        //    }
+        //    else if (response.StatusCode == HttpStatusCode.NotFound)
+        //    {
+        //        return NotFound(); // Gérer le cas où le patient n'existe pas
+        //    }
+        //    else
+        //    {
+        //        string errorMessage = await response.Content.ReadAsStringAsync();
+        //        return StatusCode((int)response.StatusCode, $"Erreur HTTP: {response.StatusCode}. Détails : {errorMessage}");
+        //    }
+        //}
+
+        // [HttpPost]
+        public async Task<IActionResult> Update(int id, Patient patient)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(patient); // Retourne la vue avec les erreurs de validation
+            }
+
+            var json = JsonConvert.SerializeObject(patient);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await _httpClient.PutAsync($"/api/Patient/{id}", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            else if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return NotFound(); // Gérer le cas où le patient n'existe pas
+            }
+            else
+            {
+                string errorMessage = await response.Content.ReadAsStringAsync();
+                return StatusCode((int)response.StatusCode, $"Erreur HTTP: {response.StatusCode}. Détails : {errorMessage}");
+            }
+        }
 
 
-        [HttpDelete]
+        // [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
             HttpResponseMessage response = await _httpClient.DeleteAsync($"/api/Patient/{id}");
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("Delete");
+                return RedirectToAction("Index");
             }
             else if (response.StatusCode == HttpStatusCode.NotFound)
             {
