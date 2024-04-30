@@ -5,7 +5,11 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSPatient", "MSPatient\MSPatient.csproj", "{84B18014-7910-4D19-957C-454E0B5EF8F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSUi", "MSUi\MSUi.csproj", "{F467EA3C-9AE7-4732-BDA2-B12466B52245}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSUi", "MSUi\MSUi.csproj", "{F467EA3C-9AE7-4732-BDA2-B12466B52245}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "Gateway\Gateway.csproj", "{9F985E38-8AEB-4A98-A866-A2AED22FEBA8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSNote", "MSNote\MSNote.csproj", "{832EEE9F-F433-44DA-8E84-916DD91A994C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{F467EA3C-9AE7-4732-BDA2-B12466B52245}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F467EA3C-9AE7-4732-BDA2-B12466B52245}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F467EA3C-9AE7-4732-BDA2-B12466B52245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F985E38-8AEB-4A98-A866-A2AED22FEBA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F985E38-8AEB-4A98-A866-A2AED22FEBA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F985E38-8AEB-4A98-A866-A2AED22FEBA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F985E38-8AEB-4A98-A866-A2AED22FEBA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832EEE9F-F433-44DA-8E84-916DD91A994C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832EEE9F-F433-44DA-8E84-916DD91A994C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832EEE9F-F433-44DA-8E84-916DD91A994C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832EEE9F-F433-44DA-8E84-916DD91A994C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

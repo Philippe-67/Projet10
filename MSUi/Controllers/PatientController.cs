@@ -15,7 +15,7 @@ namespace MSUI.Controllers
         {
 
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("https://Localhost:6001");
+            _httpClient.BaseAddress = new Uri("https://Localhost:7001");
 
         }
 
@@ -26,7 +26,7 @@ namespace MSUI.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("/api/patient"); // Utiliser un endpoint spécifique pour récupérer tous les patients
+            HttpResponseMessage response = await _httpClient.GetAsync("/api/Patient"); // Utiliser un endpoint spécifique pour récupérer tous les patients
             if (response.IsSuccessStatusCode)
             {
                 string responseData = await response.Content.ReadAsStringAsync();
@@ -67,27 +67,7 @@ namespace MSUI.Controllers
                 return StatusCode((int)response.StatusCode, $"Erreur HTTP: {response.StatusCode}. Détails : {errorMessage}");
             }
         }
-        //[HttpGet]
-        //public async Task<IActionResult> Update(int id)
-        //{
-        //    HttpResponseMessage response = await _httpClient.GetAsync($"/api/Patient/{id}");
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        string responseData = await response.Content.ReadAsStringAsync();
-        //        var patient = JsonConvert.DeserializeObject<Patient>(responseData);
-        //        return View(patient);
-        //    }
-        //    else if (response.StatusCode == HttpStatusCode.NotFound)
-        //    {
-        //        return NotFound(); // Gérer le cas où le patient n'existe pas
-        //    }
-        //    else
-        //    {
-        //        string errorMessage = await response.Content.ReadAsStringAsync();
-        //        return StatusCode((int)response.StatusCode, $"Erreur HTTP: {response.StatusCode}. Détails : {errorMessage}");
-        //    }
-        //}
+       
 
         // [HttpPost]
         public async Task<IActionResult> Update(int id, Patient patient)
