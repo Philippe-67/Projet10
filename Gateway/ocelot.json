@@ -13,6 +13,20 @@
       //"UpstreamHttpMethod": [ "Get" ],
       "UpstreamHttpMethod": [ "Get" ]
 
+    },
+    {
+      "DownstreamPathTemplate": "/api/Notes",
+      "UpstreamPathTemplate": "/api/Notes",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7003
+        }
+      ],
+      //"UpstreamHttpMethod": [ "Get" ],
+      "UpstreamHttpMethod": [ "Get" ]
+
     }
    
 

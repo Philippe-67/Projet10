@@ -15,7 +15,7 @@ namespace MSUI.Controllers
         {
 
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("https://Localhost:7001");
+            _httpClient.BaseAddress = new Uri("https://Localhost:7002");
 
         }
 

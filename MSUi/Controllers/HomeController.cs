@@ -13,7 +13,7 @@ namespace MSUi.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }
