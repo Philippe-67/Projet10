@@ -25,17 +25,19 @@ namespace MSNote.Services
         public async Task<List<Note>> GetAsync() =>
         await _notesCollection.Find(_ => true).ToListAsync();
 
-        public async Task<Note?> GetAsync(string id) =>
-            await _notesCollection.Find(x => x.Id == ObjectId.Parse(id)).FirstOrDefaultAsync();
+        //public async Task<Note?> GetAsync(string id) =>
+        //    await _notesCollection.Find(x => x.Id == ObjectId.Parse(id)).FirstOrDefaultAsync();
+        public async Task<Note?> GetAsync(int patId) =>
+          await _notesCollection.Find(x => x.PatId == patId).FirstOrDefaultAsync();
 
         public async Task CreateAsync(Note newNote) =>
             await _notesCollection.InsertOneAsync(newNote);
 
         public async Task UpdateAsync(string id, Note updatedNote) =>
-            await _notesCollection.ReplaceOneAsync(x => x.Id == ObjectId.Parse(id), updatedNote);
+            await _notesCollection.ReplaceOneAsync(x => x.Id == (id), updatedNote);
 
         public async Task RemoveAsync(string id) =>
-            await _notesCollection.DeleteOneAsync(x => x.Id == ObjectId.Parse(id));
+            await _notesCollection.DeleteOneAsync(x => x.Id == (id));
     }
 }
 

@@ -18,10 +18,23 @@ namespace MSNote.Controllers
         public async Task<List<Note>> Get() =>
             await _notesService.GetAsync();
 
-        [HttpGet("{id:length(24)}")]
-        public async Task<ActionResult<Note>> Get(string id)
+        //[HttpGet("{id:length(24)}")]
+        //public async Task<ActionResult<Note>> Get(string id)
+        //{
+        //    var note = await _notesService.GetAsync(id);
+
+        //    if (note is null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return note;
+        //}
+
+        [HttpGet("{patId}")]
+        public async Task<ActionResult<Note>> Get(int patId)
         {
-            var note = await _notesService.GetAsync(id);
+            var note = await _notesService.GetAsync(patId);
 
             if (note is null)
             {
@@ -39,37 +52,37 @@ namespace MSNote.Controllers
             return CreatedAtAction(nameof(Get), new { id = newNote.Id }, newNote);
         }
 
-        [HttpPut("{id:length(24)}")]
-        public async Task<IActionResult> Update(string id, Note updatedBook)
-        {
-            var book = await _notesService.GetAsync(id);
+        //[HttpPut("{id:length(24)}")]
+        //public async Task<IActionResult> Update(string id, Note updatedBook)
+        //{
+        //    var book = await _notesService.GetAsync(id);
 
-            if (book is null)
-            {
-                return NotFound();
-            }
+        //    if (book is null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            updatedBook.Id = book.Id;
+        //    updatedBook.Id = book.Id;
 
-            await _notesService.UpdateAsync(id, updatedBook);
+        //    await _notesService.UpdateAsync(id, updatedBook);
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        [HttpDelete("{id:length(24)}")]
-        public async Task<IActionResult> Delete(string id)
-        {
-            var book = await _notesService.GetAsync(id);
+        //[HttpDelete("{id:length(24)}")]
+        //public async Task<IActionResult> Delete(string id)
+        //{
+        //    var book = await _notesService.GetAsync(id);
 
-            if (book is null)
-            {
-                return NotFound();
-            }
+        //    if (book is null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            await _notesService.RemoveAsync(id);
+        //    await _notesService.RemoveAsync(id);
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
     }
 }
 
